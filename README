@@ -3,6 +3,22 @@
 This repo provides containers, configuration, build scripts, and examples to run
 "Doneycar-like" workflows on a variety of targets.
 
+
+To clone this repo, please run:
+
+```
+git clone --recurse-submodules https://github.com/ChameleonCloud/donkeycar.git
+```
+
+If you have already cloned the repo, you can update the submodules by running:
+
+```
+git submodule sync
+git submodule update --init --recursive --remote
+```
+
+
+
 The usual workflow consists of:
 1. Drive a small RC car around remotely, while recording camera input and steering commands.
 2. Use the data from step 1 to train a small deep learning model

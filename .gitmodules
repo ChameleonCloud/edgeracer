@@ -1,6 +1,7 @@
 [submodule "userland"]
 	path = sources/userland
-	url = https://github.com/msherman64/userland/
+    url = https://github.com/msherman64/userland/
+    branch = wip/64bit
 [submodule "donkeycar"]
-	path = sources/donkeycar
-	url = https://github.com/autorope/donkeycar
+    path = sources/donkeycar
+    url = https://github.com/ChameleonCloud/donkeycar
