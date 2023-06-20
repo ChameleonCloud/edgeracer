@@ -1,0 +1,21 @@
+# FROM nvcr.io/nvidia/l4t-base:r32.6.1 as donkeycar
+# FROM nvcr.io/nvidia/l4t-base:35.3.1 as donkeycar
+FROM nvcr.io/nvidia/l4t-tensorflow:r35.3.1-tf2.11-py3 as donkeycar
+
+COPY sources/donkeycar /donkeycar
+WORKDIR /donkeycar
+
+# RUN pip install tensorflow==2.12
+RUN pip install /donkeycar/.[nano]
+RUN pip install opencv-python-headless
+
+RUN mkdir /root/car
+WORKDIR /root/car
+# Copy prebuilt car into container
+COPY cars/chiaracer /root/car
+
+# Note: Make volumes to persist data and model
+VOLUME /root/car/data
+VOLUME /root/car/model
+
+CMD python manage.py drive
